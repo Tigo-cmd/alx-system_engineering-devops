@@ -7,3 +7,4 @@ echo "cnt >"
 read cnt
 echo $cnt >> $file
 chmod 764 $file
+bash dirgit.sh
