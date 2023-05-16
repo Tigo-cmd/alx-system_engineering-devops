@@ -5,6 +5,7 @@ read dir
 mkdir $dir
 cp dirmain.sh $dir
 cp dirgit.sh $dir
+cp filecreate.sh $dir
 cd $dir
 echo $dir > README.md
 bash dirgit.sh
