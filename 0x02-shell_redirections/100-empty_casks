@@ -1,2 +1,2 @@
 #!/bin/bash
-find . -mindepeth 1 -empty -type d -type f -printf "%f\n"
+find . -empty -printf '%f\n'
