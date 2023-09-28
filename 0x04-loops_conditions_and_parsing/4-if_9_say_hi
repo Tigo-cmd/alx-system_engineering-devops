@@ -9,5 +9,5 @@ do
    else
      echo "Best School"
    fi
-   let "i++"
+   (( i = i + 1 ))
 done
