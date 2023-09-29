@@ -1,2 +1,33 @@
 #!/usr/bin/env bash
 # Bash script
+# shellcheck disable=SC2116
+# Creates the file /var/run/myscript.pid containing its PID
+# Displays To infinity and beyond indefinitely
+# Displays I hate the kill command when receiving a SIGTERM signal
+# Displays Y U no love me?! when receiving a SIGINT signal
+# Deletes the file /var/run/myscript.pid and terminates itself 
+# when receiving a SIGQUIT or SIGTERM signal
+
+del_term() {
+	rm -rf /var/run/myscript.pid
+	kill -9 "$(echo "$$")"
+}
+
+first_term() {
+	echo "I hate the kill command"
+}
+
+second_term() {
+	echo -e "Y U no love me?\!"
+}
+
+echo "$$" > /var/run/myscript.pid
+
+trap 'first_term; del_term' SIGTERM
+trap 'second_term' SIGINT
+trap 'del_term' SIGQUIT
+
+while true; do
+	echo "To infinity and beyond"
+	sleep 2
+done
