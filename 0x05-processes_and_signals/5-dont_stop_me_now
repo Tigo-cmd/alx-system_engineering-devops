@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# Bash script that stops 4-to_infinity_and_beyond process.
+
+main=$(pgrep -f bash)
+name=$(ps -o comm= -p $main)
+kill -9 $main
