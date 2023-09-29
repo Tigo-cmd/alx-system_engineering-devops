@@ -1,2 +1,4 @@
 #!/usr/bin/env bash
-killal -TERM bash
+# kills the 7-highlander process
+
+killall bash
