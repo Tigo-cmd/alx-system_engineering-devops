@@ -4,8 +4,8 @@
 
 main=$(pgrep -f bash)
 
-for pid in $main
+for _ in $main
 do
-	name=$(ps -o comm= -p $main)
+	name=$(ps -o comm= -p "$main")
 	echo "$main $name"
 done
