@@ -4,8 +4,7 @@
 
 main=$(pgrep -f bash)
 
-for _ in $main
-do
-	name=$(ps -o comm= -p "$main")
-	echo "$main $name"
+for _ in $main; do
+name=$(ps -o comm= -p "$main")
+echo "$main $name"
 done
