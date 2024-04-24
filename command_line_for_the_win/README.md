@@ -32,3 +32,39 @@ Here are the steps to follow:
     Once the screenshots are transferred, you can proceed to push the screenshots to GitHub as mentioned in the initial requirements.
     Make sure to include the steps you followed to use the SFTP command-line tool in your project’s README.md file. This will help the reviewers understand how you performed the file transfer using SFTP.
 
+
+
+#HOW TO USE
+
+The SFTP (SSH File Transfer Protocol) put command is used to upload files from your local machine to a remote server. To use SFTP, you need to establish an SSH connection to the remote server first.
+
+Here's a basic example of how you can use SFTP to upload files:
+
+Open a terminal or command prompt on your local machine.
+
+Connect to the remote server using SFTP:
+
+	'sftp username@hostname'
+
+Replace username with your username on the remote server and hostname with the hostname or IP address of the remote server.
+
+Enter your password when prompted.
+
+Navigate to the directory on the remote server where you want to upload the files:
+
+	'cd /path/to/destination/directory'
+
+Replace /path/to/destination/directory with the path to the directory where you want to upload the files.
+
+Use the put command to upload the files:
+
+	'put /path/to/local/file'
+
+Replace /path/to/local/file with the path to the file you want to upload.
+
+Repeat step 5 for each file you want to upload.
+
+Once you've uploaded all the files, you can exit SFTP by typing:
+
+		'exit'
+
