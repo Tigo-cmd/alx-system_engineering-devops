@@ -1,6 +1,0 @@
-#!/usr/bin/env bash
-# Bash script that kills the process 7-highlander.
-
-main=$(pgrep -f bash)
-ps -o comm= -p $main
-kill -9 $main
