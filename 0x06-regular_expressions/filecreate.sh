@@ -2,10 +2,10 @@
 echo "file >"
 read file
 touch $file
-echo "#!/usr/bin/env ruby" > $file
+echo "#!/usr/bin/env bash" > $file
 echo "cnt >"
 read cnt
-echo "puts ARGV[0].scan(/$cnt/).join" >> $file
+echo $cnt >> $file
 chmod 764 $file
 bash dirgit.sh
 gedit $file
