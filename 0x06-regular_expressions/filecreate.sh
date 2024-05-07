@@ -2,7 +2,7 @@
 echo "file >"
 read file
 touch $file
-echo "#!/usr/bin/env bash" > $file
+echo "#!/usr/bin/env ruby" > $file
 echo "cnt >"
 read cnt
 echo $cnt >> $file
