@@ -1,0 +1,64 @@
+Hello World!! I'll like to talk about somrthing very exciting and overwhelming this happenes in our daily activities which begs the question, 
+WHAT REALLY HAPPENS WHEN YOU TYPE "https://www.google.com" ON YOUR WEB BROWSER AND PRESS ENTER??. I know when we try to visit a site it just appears magically but come to think of it what really hapenes behind the scene, Yea I'm going to be exposing and explaining this little secret please read on.
+
+in our everyday internet usage, we often ignore what actually does the work ir the multile tecnologies behind the scene when we type in any valid address in the webrowser and strike enter, this complex but simple action, awakens series of inticate steps which works hand in hand to fetch and display the exact web page you requested lets take a look into this steps...
+
+1. DNS Resolution or request: this stands for (Domain Name Service), this bascilaly does the assigning of names to the various computers. please Tigo why did you mention a computer? i mention because every wbsite you see is a folder i a particular computer or a folder in a server and this servers run on a hardware or software with unique number sequece called IP address (internet protocols) and now its quite difficult to memorize every ip adress for each web oge you want to vist to this DNS was introduced to assign some eassy to remeber names in place of this ips. now thw Browser first converts the easy to remember domian eg (google.com) and converts it back to the ip address which is understandable by the computer.
+the browser searchs its cache (Temporary stored infos) to see if it's has been search before if it dosen't find the ip there it continues to check the Os (operating System) cache if it dosen't find it there it checks the Router, ISP DNS server (internet Service Provider) this actually have a database of all ip addresses and domain namesn if it possible dosen't find ot ther it does a recursive search asking the like DNS servers if they have seen the ip addess for the web page once it is found it returns to the browser for further processing 
+
+2. TCP/IP connection:(Transmission Control Protocol) this are internet protocols which determines smooth transfer of data between servers this protocols are initiated and talks to the actuall server with the informations and recieves feedback or further processsing this handshake involves three ways 
+i. SYN
+ii. SYN_ACK
+iii. ACK
+
+
+3. Firewall: this is a software of hardware security as he case may be. It sits at the network's edge, inspecting incoming and outgoing traffic to prevent malicious activity.
+
+4.  TLS Handshake (HTTPS Only)
+
+Since https://www.google.com uses HTTPS, a secure TLS (Transport Layer Security) handshake is performed to establish an encrypted connection:
+
+    ClientHello: The browser sends a "ClientHello" message, which includes supported cipher suites and the highest TLS version it can handle.
+    ServerHello: The server responds with a "ServerHello" message, selecting the cipher suite and TLS version to use.
+    Certificate: The server sends its digital certificate to the browser to prove its identity.
+    Key Exchange: Both parties exchange keys to establish a secure connection.
+    Finished: Both the client and server send a "Finished" message to indicate the handshake's completion.
+
+5. Load-balancer
+
+    Role: Distribution of Traffic
+    Position in Process: After the DNS resolution, the IP address returned might point to a load balancer, especially for high-traffic websites.
+    Context: Distributes incoming HTTP requests across multiple web servers to balance the load and ensure high availability.
+
+6. Web Server
+
+    Role: Handling HTTP Requests
+    Position in Process: The web server is where the HTTP GET request lands.
+    Context: Serves static content (HTML, CSS, JS files) and forwards dynamic requests to the application server if necessary.
+
+7. Application Server
+
+    Role: Business Logic Processing
+    Position in Process: The application server processes dynamic requests, such as those requiring database access or complex computations.
+    Context: Executes server-side scripts and generates dynamic content, interacting with the database if needed.
+
+8. Database
+
+    Role: Data Storage and Retrieval
+    Position in Process: The application server queries the database to retrieve or store data as part of processing a request.
+    Context: Stores the data used by the application, such as user information, search results, and session data.
+
+9. Rendering the Webpage
+
+Upon receiving the response, the browser begins to render the webpage:
+
+    Parsing HTML: The browser parses the HTML, building the DOM (Document Object Model) tree.
+    Fetching Resources: As it parses the HTML, the browser finds references to additional resources (CSS, JavaScript, images) and makes additional HTTP requests to fetch them.
+    Applying Styles: The browser applies CSS to the DOM, creating the CSSOM (CSS Object Model).
+    Executing JavaScript: The browser executes JavaScript code, which can modify the DOM and CSSOM.
+    Layout and Painting: The browser calculates the layout of the page and paints the pixels to the screen.
+
+9. User Interaction
+
+Finally, the webpage is fully rendered, and you can interact with it as intended, whether it's searching for information, clicking links, or watching videos.
+
