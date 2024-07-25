@@ -1,2 +1,8 @@
 #!/usr/bin/env bash
-give some config for ssh client
+# give some config for ssh client
+
+Host ubuntu@100.25.153.165
+    HostName ubuntu@100.25.153.165
+    User ubuntu
+    IdentityFile ~/.ssh/school
+    PasswordAuthentication  no
