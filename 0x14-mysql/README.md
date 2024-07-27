@@ -1,16 +1,17 @@
-Resources
 
-Read or watch:
+#Resources
+
+#Read or watch:
 
     What is a primary-replica cluster
     MySQL primary replica setup
     Build a robust database backup strategy
 
-man or help:
+#man or help:
 
     mysqldump
 
-Learning Objectives
+#Learning Objectives
 
 At the end of this project, you are expected to be able to explain to anyone, without the help of Google:
 General
