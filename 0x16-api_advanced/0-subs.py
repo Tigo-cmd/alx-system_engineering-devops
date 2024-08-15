@@ -10,16 +10,15 @@ def number_of_subscribers(subreddit):
         for a given subreddit.
      If an invalid subreddit is given, the function should return 0.
      Args:
-         subreddit (str): name of the subreddit
+         subreddit: subscriber
      """
-    
     url = "https://www.reddit.com/r/{}/about.json".format(subreddit)
     header = {
         "User-Agent": "Tigo: Pycharm2023.3.2"
     }
-    try:
-        response = requests.get(url, headers=header, allow_redirects=False)
+    response = requests.get(url, headers=header, allow_redirects=False)
+    if response.status_code == 200:
         result = response.json()
         return result["data"]["subscribers"]
-    except requests.exceptions.RequestException:
+    else:
         return 0
