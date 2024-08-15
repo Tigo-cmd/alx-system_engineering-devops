@@ -11,7 +11,7 @@ def top_ten(subreddit):
     :param subreddit: the subreddit channel
     :return: None and prints None
     """
-    url = "https://www.reddit.com/r/{}/about.json".format(subreddit)
+    url = "https://www.reddit.com/r/{}/hot.json".format(subreddit)
     header = {
         "User-Agent": "Tigo: Pycharm2023.3.2"
     }
