@@ -16,9 +16,9 @@ def number_of_subscribers(subreddit):
     header = {
         "User-Agent": "Tigo: Pycharm2023.3.2"
     }
-    response = requests.get(url, headers=header, allow_redirects=False)
-    if response.status_code == 200:
+    try:
+        response = requests.get(url, headers=header, allow_redirects=False)
         result = response.json()
         return result["data"]["subscribers"]
-    else:
+    except requests.exceptions.RequestException:
         return 0
