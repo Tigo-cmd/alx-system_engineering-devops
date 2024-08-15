@@ -21,7 +21,7 @@ def recurse(subreddit, hot_list=[], after="") -> list[Any] | None:
         "User-Agent": "Tigo: Pycharm2023.3.2"
     }
 
-    response = requests.get(url, headers=header, allow_redirects=False)
+    response = requests.get(url, headers=header, allow_redirects=False, params={"after": after})
     if requests.status_codes == 200:
         result = response.json()
         data = result["data"]["children"]
