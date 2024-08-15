@@ -2,6 +2,7 @@
 """module queries the Reddit API and prints the titles of the first 10 hot posts listed for a given subreddit."""
 
 
+import json
 import requests
 
 
@@ -16,14 +17,17 @@ def top_ten(subreddit):
         "User-Agent": "Tigo: Pycharm2023.3.2"
     }
 
-    response = requests.get(url, headers=header, allow_redirects=False)
-    try:
-        if response.status_code == 200:
-            result = response.json()
-            titles = result['data']['children']
-            for title in titles[:10]:
-                print(title["data"]['title'])
-        else:
-            print(None)
-    except requests.exceptions.RequestException:
+    # response = requests.get(url, headers=header, allow_redirects=False)
+    req = requests.get(
+        "https://www.reddit.com/r/{}/hot.json".format(subreddit),
+        headers={"User-Agent": "Custom"},
+        params={"limit": 10},
+    )
+
+    if req.status_code == 200:
+        for get_data in req.json().get("data").get("children"):
+            dat = get_data.get("data")
+            title = dat.get("title")
+            print(title)
+    else:
         print(None)
