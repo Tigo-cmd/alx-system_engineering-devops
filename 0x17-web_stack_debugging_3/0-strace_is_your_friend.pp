@@ -6,7 +6,7 @@ file { '/etc/httpd/conf.d':
 # Ensure that the necessary configuration file exists
 file { '/etc/httpd/conf.d/custom_config.conf':
   ensure  => file,
-  content => template('apache/custom_config.conf.erb'), 
+  content => template('apache/custom_config.conf.erb'),
   owner   => 'root',
   group   => 'root',
   mode    => '0644',
