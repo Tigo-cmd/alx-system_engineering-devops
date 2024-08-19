@@ -6,7 +6,7 @@ file { '/etc/httpd/conf.d':
 # Ensure that the necessary configuration file exists
 file { '/etc/httpd/conf.d/custom_config.conf':
   ensure  => file,
-  content => '
+  content => "
     # Example configuration
     <VirtualHost *:80>
         ServerAdmin webmaster@localhost
