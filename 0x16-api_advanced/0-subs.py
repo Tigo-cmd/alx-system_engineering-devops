@@ -12,7 +12,7 @@ def number_of_subscribers(subreddit):
      Args:
          subreddit: subscriber
      """
-    url = "https://www.reddit.com/r/{}/about.json".format(subreddit)
+    url = f"https://oauth.reddit.com/r/{subreddit}/about.json"
     header = {
         "User-Agent": "Tigo: Pycharm2023.3.2"
     }
