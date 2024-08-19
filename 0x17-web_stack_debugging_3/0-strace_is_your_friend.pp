@@ -6,7 +6,16 @@ file { '/etc/httpd/conf.d':
 # Ensure that the necessary configuration file exists
 file { '/etc/httpd/conf.d/custom_config.conf':
   ensure  => file,
-  content => template('apache/custom_config.conf.erb'),
+  content => '
+    # Example configuration
+    <VirtualHost *:80>
+        ServerAdmin webmaster@localhost
+        DocumentRoot /var/www/html
+
+        ErrorLog ${APACHE_LOG_DIR}/error.log
+        CustomLog ${APACHE_LOG_DIR}/access.log combined
+    </VirtualHost>
+  ',
   owner   => 'root',
   group   => 'root',
   mode    => '0644',
@@ -36,4 +45,3 @@ exec { 'restorecon apache content':
   onlyif  => 'getenforce | grep -iq enforcing',
   require => File['/var/www/html'],
 }
-
