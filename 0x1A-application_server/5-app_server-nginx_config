@@ -1,0 +1,44 @@
+# configure Nginx to proxy HTTP requests to the route /airbnb-dynamic/number_odd_or_even/(any integer)
+# to a Gunicorn instance listening on port 5001
+
+server {
+    listen 80 default_server;
+
+    add_header X-Served-By XX-web-01;
+    
+    root /var/www/html;
+
+    listen[::]:80 ipv6only=on default_server;
+    server_name localhost;
+    error_page 404 /404.html;
+
+    index index.html index.htm index.nginx-debian.html;
+	rewrite ^/redirect_me https://github.com/Tigo-cmd permanent;
+
+
+	location = /404.html {
+		root /usr/share/nginx/html;
+		internal;
+    }
+
+    location /static/ {
+        alias /home/ubuntu/AirBnB_clone_v4/web_dynamic/static/;
+    }
+    location /hbnb_static {
+        alias /data/web_static/current/;
+    }
+    location /airbnb-onepage/ {
+        proxy_pass http://0.0.0.0:5000/airbnb-onepage/;
+    }
+
+    location ~ ^/airbnb-dynamic/number_odd_or_even/([0-9]+)$ {
+        proxy_pass http://127.0.0.1:5001/number_odd_or_even/$1;
+    }
+
+    location /api/ {
+        proxy_pass http://127.0.0.1:5002;
+    }
+    location / {
+		try_files $uri $uri/ =404;
+	}
+}
